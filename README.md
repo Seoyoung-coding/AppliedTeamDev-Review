@@ -1,3 +1,27 @@
+> 해야할일 목록 : contentTest.http로 시험해본다
+
+앞으로 할것들
+
+이부분에 대해서 고민해보기.... 구매내역이 저장되어있는 db를 찾아서 ...어디에 저장되는지 맞는 repository찾아서 { boolean hasPurchased = orderService.hasPurchased(userId, contentId); //유료서비스 return contentService.getContentWithAccessControl(id, hasPurchased); } 이거 없이 db에서 불러오기 => 이런ㄴ식으로 고치기
+    @GetMapping("/{userId}")
+    public Object get(@PathVariable Long userId) {
+        boolean hasPurchased = orderService.hasPurchased(userId, contentId); //유료서비스
+        return contentService.getContentWithAccessControl(id, hasPurchased);
+    }
+create는 테스트했고, 실전용으로 (임시 아이디가 아니라 principalId가 되도록)
+
+그리고 다른거
+
+long부분, 다시 자기페이지로 돌아올수있기 @PostMapping public ResponseEntity create(@RequestBody ContentCreateRequest req) { Long id = contentService.createContent(1L, req); // 임시 userId return ResponseEntity.status(HttpStatus.CREATED).body(id); }
+
+get부분 @GetMapping("/{userId}") public Object get(@PathVariable Long userId) { boolean hasPurchased = orderService.hasPurchased(userId, contentId); //유료서비스 return contentService.getContentWithAccessControl(id, hasPurchased); } //제작자랑 어드민은 자기꺼보게
+
+무료의 경우 가격정보, 할인정보는 보여줄필요 없음 -> null로 보여주겠지 -> private int price; private int discountRate; 이부분 null 값처리(예외처리?) 이 외에 null 값을 나올거 같은 경우를 찾아서 처리해야함
+
+
+
+
+
 ✅ C-01 콘텐츠 발행
 
 콘텐츠를 생성하고 게시하는 기능
