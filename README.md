@@ -1,4 +1,4 @@
-> 해야할일 목록 : contentTest.http로 시험해본다
+# 해야할일 목록 contentTest.http로 시험해본다
 
 앞으로 할것들
 
@@ -18,7 +18,7 @@ get부분 @GetMapping("/{userId}") public Object get(@PathVariable Long userId) 
 
 무료의 경우 가격정보, 할인정보는 보여줄필요 없음 -> null로 보여주겠지 -> private int price; private int discountRate; 이부분 null 값처리(예외처리?) 이 외에 null 값을 나올거 같은 경우를 찾아서 처리해야함
 
-
+1.결제한 컨텐츠를 그냥 가져왔다면 지금은 미리보기 부분을 구분해야한다. 유료 컨텐츠 긁어와서 어떻게 할까 고민 2. global exception은 3. 가격변동시 알람을 보내주는 기능 4. 소프트딜리트 / 하드딜리트 => 구분하는거 기준을 고민해보기
 
 
 
