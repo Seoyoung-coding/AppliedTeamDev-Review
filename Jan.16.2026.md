@@ -58,3 +58,6 @@ HTTP 상태 코드 명확화
 관심 콘텐츠 테이블
 
 ## 9. Soft Delete / Hard Delete 기준 정하기
+
+
+소프트삭제의 경우 밴이랑 inactive나눠야함, 활성화시키면 active, 이넘타입에 softdeleted 하나 추가해서 리팩토링하기
